@@ -1,0 +1,137 @@
+style-predict
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Blurred Background */
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    z-index: 9;
+    transition: opacity 0.3s ease;
+}
+
+/* Dialog Box (Modal) */
+#prediction-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.3s ease;
+    z-index: 10;
+}
+
+/* Show the modal with animation */
+#overlay.show, #prediction-container.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Heading */
+#prediction-container h2 {
+    font-size: 24px;
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+/* Message Styles */
+.message {
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    margin: 15px 0;
+    text-align: center;
+}
+
+/* Low Stress - Positive Message */
+.message.positive {
+    background-color: #e3fcef;
+    color: #2c7a4b;
+    border-left: 5px solid #2c7a4b;
+}
+
+/* Medium Stress - Alert Message */
+.message.alert {
+    background-color: #fff7e6;
+    color: #c2781b;
+    border-left: 5px solid #c2781b;
+}
+
+/* High Stress - Warning Message */
+.message.warning {
+    background-color: #fdeaea;
+    color: #d32f2f;
+    border-left: 5px solid #d32f2f;
+}
+
+/* Recommendation Button */
+.recommend-btn {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 18px;
+    border-radius: 6px;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+}
+
+/* Button colors for different stress levels */
+.message.positive + .recommend-btn {
+    background: #2c7a4b;
+    color: white;
+}
+
+.message.alert + .recommend-btn {
+    background: #c2781b;
+    color: white;
+}
+
+.message.warning + .recommend-btn {
+    background: #d32f2f;
+    color: white;
+}
+
+/* Hover Effect */
+.recommend-btn:hover {
+    filter: brightness(1.1);
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-btn:hover {
+    color: #000;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroSense AI - Stress Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_home.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to NeuroSense AI</h1>
+        <p class="tagline">Your AI-Powered Stress Detection & Management Solution</p>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section with Image -->
+        <div class="hero">
+            <img src="{{ url_for('static', filename='home_img.jpg') }}" alt="Stress Detection Illustration">
+        </div>
+
+        <!-- Info Sections -->
+        <div class="info-box">
+            <h2>Why NeuroSense AI?</h2>
+            <p>In today’s fast-paced world, stress can take a toll on your health and well-being. NeuroSense AI helps you identify your stress levels by analyzing physiological inputs and provides personalized strategies to manage stress effectively.</p>
+        </div>
+
+        <div class="info-box">
+            <h2>What Makes NeuroSense AI Unique?</h2>
+            <p>Unlike generic stress trackers, NeuroSense AI uses cutting-edge machine learning to assess multiple factors, including heart rate, respiratory patterns, and body temperature, to deliver accurate results.</p>
+        </div>
+
+        <div class="info-box">
+            <h2>What You’ll Get?</h2>
+            <p>Discover your stress level with personalized management methods, including breathing exercises, meditation, diet plans, and lifestyle adjustments for overall well-being.</p>
+        </div>
+
+        <a href="{{ url_for('basic_question') }}" class="btn">Let's Begin</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #e3f2fd, #bbdefb); /* Soft blue gradient */
+    color: #0d1b2a;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Container */
+.container {
+    width: 85%;
+    margin: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95); /* Slight transparency */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Title & Tagline */
+h1 {
+    font-size: 2.5em;
+    color: #0d47a1; /* Deep blue */
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-size: 1.2em;
+    color: #1565c0;
+    margin-bottom: 30px;
+}
+
+/* Section Styling */
+.section {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease-in-out;
+}
+
+.section:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #0d47a1;
+    margin-bottom: 15px;
+}
+
+/* Flexbox Layout */
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    flex-wrap: wrap;
+}
+
+/* Text Styling */
+.text {
+    width: 60%;
+    padding: 15px;
+    font-size: 1.1em;
+    color: #0d1b2a;
+    line-height: 1.5;
+}
+
+/* Image Styling */
+.image {
+    width: 35%;
+    text-align: right;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .text {
+        width: 100%;
+    }
+    .image {
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+    }
+}

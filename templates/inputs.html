@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress Level Prediction</title>
+    <link rel="stylesheet" href="static/style_inputs.css">
+    <link rel="stylesheet" href="static/style_predict.css">
+    <script>
+        function showPrediction() {
+            document.getElementById("prediction-container").classList.add("show");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Section: Input Form -->
+        <div class="form-section">
+            <h1>Please enter the following data accurately.</h1>
+            <form action="/inputs" method="post" onsubmit="showPrediction()">
+                <div class="row">
+                    <label>Acceleration (X, Y, Z):</label>
+                    <input type="number" name="acc_x" step="any" required>
+                    <input type="number" name="acc_y" step="any" required>
+                    <input type="number" name="acc_z" step="any" required>
+                </div>
+                <div class="row">
+                    <label>Body Temperature:</label>
+                    <input type="number" name="body_temp" step="any" required>
+                </div>
+                <div class="row">
+                    <label>Respiratory Rate:</label>
+                    <input type="number" name="resp_rate" step="any" required>
+                </div>
+                <div class="row">
+                    <label>Electrodermal Activity:</label>
+                    <input type="number" name="eda" step="any" required>
+                </div>
+                <div class="row">
+                    <label>Electromyography:</label>
+                    <input type="number" name="emg" step="any" required>
+                </div>
+                <div class="row">
+                    <label>Electrocardiogram:</label>
+                    <input type="number" name="ecg" step="any" required>
+                </div>
+                <button type="submit">Predict Stress Level</button>
+            </form>
+        </div>
+
+        <!-- Right Section: Image -->
+        <div class="image-section">
+            <img src="static/input_img.jpg" alt="Stress Monitoring Illustration">
+        </div>
+    </div>
+
+    <!-- Prediction Output Box -->
+    <div id="prediction-container" {% if stress_level is not none %}class="show"{% endif %}>
+        <h2>Stress Level Prediction</h2>
+
+        {% if stress_level == 1 %}
+            <p class="message positive">
+                ✅ Great news! Your stress level is <strong>LOW</strong>. Keep maintaining your healthy habits and balanced lifestyle. Stay relaxed and enjoy your day! 😊
+            </p>
+            <a href="{{ url_for('low') }}" class="recommend-btn">View Recommendation</a>
+
+        {% elif stress_level == 2 %}
+            <p class="message alert">
+                ⚠ <strong>ALERT!</strong> Your stress level is <strong>MEDIUM</strong>. It’s time to take a break, practice some relaxation techniques, and focus on self-care. Don't ignore early signs of stress! 🌿
+            </p>
+            <a href="{{ url_for('medium') }}" class="recommend-btn">View Recommendation</a>
+
+        {% elif stress_level == 3 %}
+            <p class="message warning">
+                🚨 <strong>WARNING!</strong> Your stress level is <strong>HIGH</strong>. Immediate action is recommended. Consider deep breathing exercises, stepping away from stressors, and seeking professional help if needed. Your well-being is a priority! ❤
+            </p>
+            <a href="{{ url_for('high') }}" class="recommend-btn">View Recommendation</a>
+        {% endif %}
+    </div>
+
+</body>
+</html>
